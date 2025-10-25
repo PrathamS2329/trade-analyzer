@@ -3,7 +3,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import os
 from dotenv import load_dotenv
 
-from app.models import User
+from app.models import User, Player
 
 load_dotenv()
 
@@ -24,7 +24,7 @@ async def init_database():
     # Initialize Beanie
     await init_beanie(
         database=database,
-        document_models=[User]
+        document_models=[User, Player]
     )
     
     return database

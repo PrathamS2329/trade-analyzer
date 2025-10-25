@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 from beanie import Document, Indexed
 from pydantic import BaseModel, EmailStr, Field
 from datetime import datetime
@@ -21,6 +21,25 @@ class User(Document):
             "email",
         ]
 
+class Player(Document):
+    """Player document model for fantasy basketball"""
+    name: Indexed(str)
+    position: str
+    team: str
+    stats: dict = Field(default_factory=dict)
+    fantasy_points: float = 0.0
+    is_active: bool = True
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    
+    class Settings:
+        name = "players"
+        indexes = [
+            "name",
+            "position",
+            "team",
+        ]
+
 class UserCreate(BaseModel):
     username: str = Field(..., min_length=3, max_length=50)
     email: EmailStr
@@ -40,6 +59,31 @@ class UserResponse(BaseModel):
     
     class Config:
         from_attributes = True
+
+class PlayerCreate(BaseModel):
+    name: str
+    position: str
+    team: str
+    stats: dict = Field(default_factory=dict)
+    fantasy_points: float = 0.0
+
+class PlayerResponse(BaseModel):
+    id: str
+    name: str
+    position: str
+    team: str
+    stats: dict
+    fantasy_points: float
+    is_active: bool
+    created_at: datetime
+    
+    class Config:
+        from_attributes = True
+
+class PlayerSearch(BaseModel):
+    query: str = Field(..., min_length=1)
+    position: Optional[str] = None
+    team: Optional[str] = None
 
 class Token(BaseModel):
     access_token: str

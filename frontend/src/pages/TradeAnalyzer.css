@@ -1,0 +1,240 @@
+.trade-analyzer {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.analyzer-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.analyzer-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.analyzer-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.analyzer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.trade-sides {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.trade-side {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+}
+
+.side-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.side-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.side-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.side-count {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.clear-side-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.clear-side-btn:hover:not(:disabled) {
+  background: #c82333;
+}
+
+.clear-side-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.side-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.total-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.total-points {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #28a745;
+}
+
+.side-players {
+  min-height: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.empty-state {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px dashed #dee2e6;
+}
+
+.empty-hint {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #999;
+}
+
+.trade-vs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vs-divider {
+  background: white;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vs-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.trade-analysis {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 200px;
+}
+
+.analysis-result {
+  font-weight: 600;
+}
+
+.analysis-status {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.analysis-details {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.player-search-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.search-tab {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.search-tab.active {
+  border-color: #667eea;
+  background: #667eea;
+  color: white;
+}
+
+.search-tab:hover:not(.active) {
+  border-color: #667eea;
+  background: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+  .trade-sides {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .trade-vs {
+    order: -1;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .vs-divider {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .vs-text {
+    font-size: 1.2rem;
+  }
+  
+  .analyzer-header h1 {
+    font-size: 2rem;
+  }
+}

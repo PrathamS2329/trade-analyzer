@@ -4,7 +4,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 import os
 from dotenv import load_dotenv
 
-from app.routers import auth, users
+from app.routers import auth, users, players
 from app.database import init_database, close_database
 
 load_dotenv()
@@ -33,6 +33,7 @@ async def shutdown_event():
 # Include routers
 app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
 app.include_router(users.router, prefix="/api/users", tags=["users"])
+app.include_router(players.router, prefix="/api/players", tags=["players"])
 
 @app.get("/")
 async def root():

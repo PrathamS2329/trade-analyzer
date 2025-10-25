@@ -16,15 +16,29 @@
 .dashboard-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid #f0f0f0;
 }
 
-.dashboard-header h1 {
+.welcome-section h1 {
   color: #333;
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+}
+
+.username-display {
+  color: #666;
   margin: 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.username-highlight {
+  color: #667eea;
+  font-weight: 600;
+  font-size: 1.3rem;
 }
 
 .logout-button {
@@ -49,19 +63,124 @@
   border-radius: 5px;
 }
 
-.user-info h2 {
+.user-info h3 {
   color: #333;
   margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
 
 .info-item {
   margin-bottom: 0.5rem;
   color: #555;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.inactive {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status-badge.verified {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-badge.unverified {
+  background: #fff3cd;
+  color: #856404;
 }
 
 .dashboard-content {
   color: #666;
   line-height: 1.6;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.feature-card:hover:not(.coming-soon) {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.feature-card.coming-soon {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.feature-card p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.feature-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.feature-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.feature-button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .loading {
